@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Management System</title>
+    <title>GIMS- Inventory System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         .sidebar {
             min-height: 100vh;
-            background: #2c3e50;
+            background: #000;
         }
         .sidebar .nav-link {
             color: #ecf0f1;
@@ -21,7 +21,7 @@
             color: #3498db;
         }
         .sidebar .nav-link.active {
-            background: #3498db;
+               background: linear-gradient(135deg, #000 0%, #3498db 100%);
             color: white;
         }
         .stat-card {
@@ -32,7 +32,7 @@
             transform: translateY(-5px);
         }
         .low-stock {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(45deg, #ff6b6b, #bd0505);
             color: white;
         }
         .total-products {
@@ -48,7 +48,7 @@
             color: white;
         }
         .navbar-auth {
-            background: #34495e !important;
+            background: #000;
         }
     </style>
 </head>
@@ -89,7 +89,7 @@
             <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-3">
                     <div class="text-center mb-4">
-                        <h4 class="text-white">Inventory System</h4>
+                        <h4 class="text-white">GIMS</h4>
                         <small class="text-white-50">Welcome, {{ Auth::user()->name }}</small>
                     </div>
                     <ul class="nav flex-column">

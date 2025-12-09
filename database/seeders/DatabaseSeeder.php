@@ -1,14 +1,32 @@
 <?php
 namespace Database\Seeders;
+
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Supplier;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Create Users
+        User::create([
+            'name' => 'Admin User',
+            'email' => 'admin@inventory.com',
+            'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
+        ]);
+
+        User::create([
+            'name' => 'Manager',
+            'email' => 'manager@inventory.com',
+            'password' => Hash::make('manager123'),
+            'email_verified_at' => now(),
+        ]);
+
         // Create Categories
         $categories = [
             ['name' => 'Fruits', 'description' => 'Fresh fruits'],
@@ -102,5 +120,13 @@ class DatabaseSeeder extends Seeder
         foreach ($products as $product) {
             Product::create($product);
         }
+
+        // Success message
+        $this->command->info('✅ Database seeded successfully!');
+        $this->command->info('👤 Admin Login: admin@inventory.com / password123');
+        $this->command->info('👤 Manager Login: manager@inventory.com / manager123');
+        $this->command->info('📊 Products: 4 items');
+        $this->command->info('🏷️  Categories: 5 categories');
+        $this->command->info('🏢 Suppliers: 3 suppliers');
     }
 }
